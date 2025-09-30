@@ -1,20 +1,1050 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vercel Minimal Test</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zarsa Gold — Bespoke Fine Jewelry</title>
+
+    <link rel="canonical" href="https://zarsa.ca/" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Zarsa Gold" />
+    <meta
+      property="og:title"
+      content="Zarsa Gold — Bespoke Fine Jewelry in Toronto"
+    />
+    <meta
+      property="og:description"
+      content="Bespoke fine jewelry — rings, bracelets, necklaces, set. Visit our gallery and contact us for custom designs."
+    />
+    <meta property="og:url" content="https://zarsa.ca/" />
+    <meta property="og:image" content="assets/necklace1.jpg" />
+    <meta property="og:image:alt" content="Zarsa Gold showcase" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Zarsa Gold — Bespoke Fine Jewelry in Toronto"
+    />
+    <meta
+      name="twitter:description"
+      content="Bespoke fine jewelry — custom designs crafted in 18K/22K gold."
+    />
+    <meta name="twitter:image" content="assets/necklace1.jpg" />
+
+    <!-- JSON-LD LocalBusiness / JewelryStore -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "JewelryStore",
+        "name": "Zarsa Gold",
+        "url": "https://zarsa.ca/",
+        "image": "https://zarsa.ca/assets/necklace1.jpg",
+        "telephone": "+1-437-608-1177",
+        "email": "mailto:ZARSAGOLD@GMAIL.COM",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "17 Atlantic Ave",
+          "addressLocality": "Toronto",
+          "addressRegion": "ON",
+          "postalCode": "M6K 3E7",
+          "addressCountry": "CA"
+        },
+        "priceRange": "$$$",
+        "areaServed": "CA",
+        "description": "Bespoke fine jewelry handcrafted in 18K/22K gold — rings, bracelets, necklaces, and set."
+      }
+    </script>
+
+    <meta
+      name="description"
+      content="Zarsa Gold crafts bespoke fine jewelry — rings, bracelets, necklaces, and sert made to order. Explore our gallery and contact us for custom designs."
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gold: {
+                50: "#FFF7E1",
+                100: "#FCECBF",
+                200: "#F5CF7A",
+                300: "#E7C66A",
+                400: "#D9B44A",
+                500: "#C08C2B",
+                600: "#8A5E13",
+                700: "#6E4A0F",
+                800: "#3A2A07",
+                900: "#1F1704",
+              },
+            },
+            boxShadow: { gold: "0 8px 30px rgba(233, 201, 120, 0.25)" },
+            fontFamily: {
+              display: ["Playfair Display", "serif"],
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; display: grid; place-items: center; min-height: 100vh; }
-      .card { padding: 24px 28px; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,.05) }
-      h1 { margin: 0 0 8px; font-weight: 700; font-size: 22px; }
-      p { margin: 0; color: #4b5563; }
+      html,
+      body {
+        background: #0b0b0b;
+        color: #e7e7e7;
+      }
+      .gold-gradient {
+        background: linear-gradient(
+          135deg,
+          #f5cf7a 0%,
+          #c08c2b 50%,
+          #8a5e13 100%
+        );
+      }
+      .gold-text {
+        background: linear-gradient(
+          135deg,
+          #f5cf7a 0%,
+          #c08c2b 50%,
+          #8a5e13 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .glass {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .hero-slide {
+        transition: opacity 0.7s ease, transform 0.8s ease;
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0%;
+        height: 2px;
+        background: #f5cf7a;
+        transition: width 0.25s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .btn-gold {
+        background: linear-gradient(135deg, #f5cf7a, #c08c2b 60%);
+        color: #171717;
+      }
+      .btn-gold:hover {
+        filter: brightness(1.05);
+      }
     </style>
   </head>
-  <body>
-    <div class="card">
-      <h1>It works 🎉</h1>
-      <p>This is a static HTML page deployed on Vercel.</p>
-    </div>
+  <body class="font-sans antialiased">
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40">
+      <div class="mx-auto max-w-7xl px-6">
+        <nav
+          class="glass mt-4 rounded-2xl px-5 py-3 flex items-center justify-between shadow-gold"
+        >
+          <a
+            href="#"
+            class="flex items-center gap-3 group"
+            aria-label="Zarsa Gold — Home"
+          >
+            <div class="w-9 h-9 rounded-full gold-gradient shadow-gold"></div>
+            <span class="font-display text-xl tracking-wider gold-text"
+              >ZARSA GOLD</span
+            >
+          </a>
+          <ul class="hidden md:flex items-center gap-8 text-sm">
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#home">Home</a>
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            class="hidden sm:inline-flex btn-gold px-4 py-2 rounded-xl font-medium shadow-gold"
+            >Custom Order</a
+          >
+          <button
+            id="menuBtn"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-xl glass"
+            aria-label="Menu"
+          >
+            <svg
+              width="22"
+              height="22"
+              fill="none"
+              stroke="#F5CF7A"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden md:hidden mx-auto max-w-7xl px-6">
+        <div class="glass mt-2 rounded-2xl px-5 py-3 shadow-gold">
+          <ul class="flex flex-col gap-4 text-sm">
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#home">Home</a>
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#gallery"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#about">About</a>
+            </li>
+            <li>
+              <a class="nav-link hover:text-gold-200" href="#contact"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero / Slider -->
+    <section id="home" class="relative pt-36">
+      <div
+        class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-10 items-center"
+      >
+        <div>
+          <h1
+            class="font-display text-4xl sm:text-5xl lg:text-6xl leading-tight"
+          >
+            Bespoke <span class="gold-text">Fine Jewelry</span> <br />
+            Crafted for Your Story
+          </h1>
+          <p class="mt-5 text-lg text-neutral-300/90 max-w-xl">
+            Zarsa Gold designs and handcrafts exceptional rings, bracelets,
+            necklaces, and set. Explore our gallery and contact us for custom
+            one-of-a-kind creations.
+          </p>
+          <div class="mt-8 flex items-center gap-4">
+            <a
+              href="#gallery"
+              class="btn-gold px-5 py-3 rounded-xl font-semibold shadow-gold"
+              >Explore Gallery</a
+            >
+            <a
+              href="#contact"
+              class="px-5 py-3 rounded-xl glass font-semibold hover:text-gold-200"
+              >Start a Custom Order</a
+            >
+          </div>
+          <div class="mt-6 flex items-center gap-6 text-sm text-neutral-300/70">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-gold-300"></span> 18K / 22K
+              Gold
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-gold-300"></span> Lifetime
+              Care
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-gold-300"></span> Bespoke
+              Design
+            </div>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="overflow-hidden rounded-3xl shadow-gold">
+            <div class="relative h-[420px] sm:h-[520px] bg-black">
+              <img
+                class="hero-slide absolute inset-0 h-full w-full object-cover opacity-100"
+                src="assets/necklace1.jpg"
+                alt="Necklace"
+              />
+              <img
+                class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0"
+                src="assets/ring1.jpg"
+                alt="Ring"
+              />
+              <img
+                class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0"
+                src="assets/bracelet1.jpg"
+                alt="Bracelet"
+              />
+              <img
+                class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0"
+                src="assets/set1.jpg"
+                alt="Set"
+              />
+            </div>
+          </div>
+          <div
+            class="absolute -bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-3"
+          >
+            <button
+              id="prevSlide"
+              class="glass w-10 h-10 rounded-full flex items-center justify-center"
+              aria-label="Previous slide"
+            >
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#F5CF7A"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M15 18l-6-6 6-6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              id="nextSlide"
+              class="glass w-10 h-10 rounded-full flex items-center justify-center"
+              aria-label="Next slide"
+            >
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="#F5CF7A"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 6l6 6-6 6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="relative py-24">
+      <div class="mx-auto max-w-7xl px-6">
+        <div
+          class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6"
+        >
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl">Gallery</h2>
+            <p class="text-neutral-300/90 mt-2 max-w-xl">
+              A curated selection of our handcrafted pieces. Tap to view in full
+              size.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button
+              data-filter="all"
+              class="filter-btn btn-gold px-4 py-2 rounded-xl text-sm font-semibold"
+            >
+              All
+            </button>
+            <button
+              data-filter="rings"
+              class="filter-btn glass px-4 py-2 rounded-xl text-sm font-semibold hover:text-gold-200"
+            >
+              Rings
+            </button>
+            <button
+              data-filter="bracelets"
+              class="filter-btn glass px-4 py-2 rounded-xl text-sm font-semibold hover:text-gold-200"
+            >
+              Bracelets
+            </button>
+            <button
+              data-filter="necklaces"
+              class="filter-btn glass px-4 py-2 rounded-xl text-sm font-semibold hover:text-gold-200"
+            >
+              Necklaces
+            </button>
+            <button
+              data-filter="set"
+              class="filter-btn glass px-4 py-2 rounded-xl text-sm font-semibold hover:text-gold-200"
+            >
+              Set
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="card group rings">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/ring1.jpg"
+                alt="Ring"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Ring Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card bracelets">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/bracelet1.jpg"
+                alt="Bracelet"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Bracelet Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card bracelets">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/bracelet2.jpg"
+                alt="Bracelet"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Bracelet Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card bracelets">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/bracelet3.jpg"
+                alt="Bracelet"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Bracelet Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace1.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card set">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/set1.jpg"
+                alt="Set"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Luxe Set Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card set">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/set2.jpg"
+                alt="Set"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Luxe Set Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card set">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/set3.jpg"
+                alt="Set"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Luxe Set Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card set">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/set4.jpg"
+                alt="Set"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Luxe Set Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- <article class="card rings">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/ring1.jpg"
+                alt="Ring"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Signet Oval Ring</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article> -->
+
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace2.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace3.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace4.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace5.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace6.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace7.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="card necklaces">
+            <div
+              class="relative overflow-hidden rounded-2xl bg-neutral-900/50 border border-white/5"
+            >
+              <img
+                src="assets/necklace8.jpg"
+                alt="Necklace"
+                class="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+              <div
+                class="absolute bottom-0 p-4 flex items-center justify-between w-full"
+              >
+                <h3 class="font-semibold">Necklace Zar</h3>
+                <button
+                  class="open-lightbox glass px-3 py-1.5 rounded-lg text-sm"
+                >
+                  View
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div
+        id="lightbox"
+        class="fixed inset-0 hidden items-center justify-center bg-black/80 z-50 p-6"
+      >
+        <button
+          id="closeLightbox"
+          class="absolute top-6 right-6 glass px-4 py-2 rounded-xl"
+        >
+          Close
+        </button>
+        <img
+          id="lightboxImg"
+          src=""
+          alt="Full view"
+          class="max-h-[80vh] max-w-[90vw] rounded-2xl border border-white/10 shadow-gold"
+        />
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-24">
+      <div
+        class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-center"
+      >
+        <div class="order-2 lg:order-1">
+          <h2 class="font-display text-3xl sm:text-4xl">About Zarsa Gold</h2>
+          <p class="mt-4 text-neutral-300/90 leading-relaxed">
+            For over a decade, Zarsa Gold has crafted bespoke fine jewelry
+            rooted in timeless design and meticulous workmanship. We work
+            closely with each client to design, prototype, and hand-finish
+            pieces that carry meaning — from engagement rings to heirloom
+            bracelets and statement necklaces. Every piece is made in-house with
+            premium 18K/22K gold.
+          </p>
+          <ul class="mt-6 space-y-3 text-neutral-300/90">
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-gold-300 mt-2"></span>
+              Bespoke design consultations
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-gold-300 mt-2"></span> CAD
+              prototyping and custom sizing
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-gold-300 mt-2"></span>
+              Lifetime care & complimentary cleaning
+            </li>
+          </ul>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div
+            class="rounded-3xl overflow-hidden shadow-gold border border-white/5"
+          >
+            <img
+              src="assets/bracelet.svg"
+              alt="Workshop"
+              class="w-full h-[360px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24">
+      <div
+        class="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-stretch"
+      >
+        <div class="glass rounded-3xl p-6 shadow-gold h-full flex flex-col">
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl">
+              Contact & Custom Orders
+            </h2>
+            <p class="mt-3 text-neutral-300/90">
+              Reach out for consultations, sizing, or bespoke designs.
+            </p>
+
+            <div class="mt-6 space-y-4 text-neutral-300/90">
+              <p>
+                <strong>Phone:</strong>
+                <a href="tel:+14376081177" class="hover:text-gold-200"
+                  >(437) 608-1177</a
+                >
+              </p>
+              <p>
+                <strong>Email:</strong>
+                <a
+                  href="mailto:ZARSAGOLD@GMAIL.COM?subject=Custom%20Order%20Inquiry"
+                  class="hover:text-gold-200"
+                  >ZARSAGOLD@GMAIL.COM</a
+                >
+              </p>
+              <p>
+                <strong>Address:</strong> 17 Atlantic Ave, Toronto, ON M6K 3E7
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 rounded-2xl overflow-hidden border border-white/10">
+            <iframe
+              title="map"
+              class="w-full h-80 sm:h-96 lg:h-[360px]"
+              loading="lazy"
+              src="https://www.google.com/maps?q=17%20Atlantic%20Ave%2C%20Toronto%2C%20ON%20M6K%203E7&output=embed"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="h-full">
+          <form
+            id="contactForm"
+            class="glass rounded-3xl p-6 space-y-5 shadow-gold h-full flex flex-col"
+          >
+            <div>
+              <label class="block text-sm mb-2">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+                required
+              />
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-2">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+                  required
+                />
+              </div>
+              <div>
+                <label class="block text-sm mb-2">Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+                />
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm mb-2"
+                >What would you like to create?</label
+              >
+              <select
+                name="category"
+                class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+              >
+                <option value="Ring">Ring</option>
+                <option value="Bracelet">Bracelet</option>
+                <option value="Necklace">Necklace</option>
+                <option value="Set">Set</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm mb-2"
+                >Reference image (optional)</label
+              >
+              <input
+                type="file"
+                name="reference"
+                accept="image/*,.pdf"
+                class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+              />
+            </div>
+            <div>
+              <label class="block text-sm mb-2">Message</label>
+              <textarea
+                name="message"
+                rows="5"
+                class="w-full rounded-xl bg-neutral-900/60 border border-white/10 px-4 py-3 outline-none focus:border-gold-300"
+                placeholder="Tell us about your idea..."
+                required
+              ></textarea>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2 text-sm">
+                <input
+                  id="agree"
+                  type="checkbox"
+                  class="accent-gold-300"
+                  required
+                />
+                <label for="agree"
+                  >I agree to be contacted by Zarsa Gold.</label
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <button
+                  type="button"
+                  id="cancelBtn"
+                  class="px-5 py-3 rounded-xl glass font-semibold"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  class="btn-gold px-5 py-3 rounded-xl font-semibold shadow-gold"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+            <p id="formStatus" class="text-sm text-neutral-300/80"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/5">
+      <div
+        class="mx-auto max-w-7xl px-6 flex flex-col sm:flex-row gap-4 items-center justify-between text-sm text-neutral-400"
+      >
+        <p>
+          © 2025 Zarsa Gold. All rights reserved. ·
+          <a
+            href="https://miladweb.com"
+            class="hover:text-gold-200 underline underline-offset-4"
+            >miladweb.com</a
+          >
+        </p>
+        <p>Handcrafted in Toronto · 18K / 22K Gold</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
   </body>
 </html>

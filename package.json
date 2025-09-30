@@ -1,0 +1,16 @@
+{
+  "name": "zarsa-gold-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zarsa Gold static site with Vercel serverless contact form",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "formidable": "^3.5.1",
+    "resend": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
