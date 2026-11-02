@@ -8,7 +8,7 @@ An elegant website for a fine-jewelry brand, with a filterable gallery and a cus
 <a href="https://github.com/miladmo68/zarsa2"><img src="https://img.shields.io/badge/Source-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Source code"></a>
 <a href="https://miladweb.com"><img src="https://img.shields.io/badge/Portfolio-miladweb.com-1E3A8A?style=for-the-badge&logo=aboutdotme&logoColor=white" alt="Portfolio"></a>
 
-**🔗 Live:** [zarsa2.vercel.app](https://zarsa.ca/)
+**🔗 Live:** [zarsa.ca](https://zarsa.ca/)
 
 </div>
 
