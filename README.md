@@ -2,7 +2,7 @@
 
 # 💍 Zarsa Gold — Bespoke Fine Jewelry
 
-An elegant website for a fine-jewelry brand, with a filterable gallery and a custom-order form.
+A luxury, motion-rich website for a Toronto fine-jewelry atelier: an editorial collection, a scroll-driven reveal and a custom-order form.
 
 <a href="https://zarsa.ca/"><img src="https://img.shields.io/badge/Live_Demo-Open_Site-FF6A00?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"></a>
 <a href="https://github.com/miladmo68/zarsa2"><img src="https://img.shields.io/badge/Source-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Source code"></a>
@@ -16,16 +16,27 @@ An elegant website for a fine-jewelry brand, with a filterable gallery and a cus
   <img src="./.github/preview.jpg" alt="Zarsa Gold — Bespoke Fine Jewelry screenshot" width="100%" />
 </p>
 
+<p align="center">
+  <img src="./.github/reveal.jpg" alt="Scroll-driven reveal section" width="49%" />
+  <img src="./.github/col.jpg" alt="Collection with filters" width="49%" />
+</p>
+
 ## ✨ Features
 
-- Gallery filtered by rings, bracelets, necklaces and sets
-- Custom-order form sent with Resend
-- Luxury dark-and-gold visual design
-- Deployed on Vercel
+- **Signature hero** — a circular "toggle clasp" window that draws itself in gold on load, with a crossfading featured-piece carousel and pointer parallax
+- **Scroll-driven reveal** — a circle that grows into a full-screen image as you scroll
+- **Editorial collection** — balanced masonry grid, animated filter pill, image clip reveals and a custom "View" cursor
+- **Lightbox** — keyboard, swipe and focus-trap support, piece descriptions, 18K / 22K choice and "Ask about this piece", which pre-fills the order form
+- **Saved pieces** — heart any piece; your saved list shows in the nav and is sent with your request
+- **Shop by how you wear it** — Layer it, Stack it, Gift a set and Mark a moment entry points
+- **Atelier story** — a four-step process, promises and a parallax photo collage
+- **Custom-order form** — floating labels, category chips, drag-and-drop reference upload and clear validation; sent with Resend through a Vercel serverless function
+- **Mobile-first** — full-screen circular menu, a sticky order button and swipeable rails
+- **Fast and accessible** — self-hosted fonts, responsive WebP images, Lenis smooth scroll, `prefers-reduced-motion` support and visible keyboard focus
 
 ## 🛠️ Tech Stack
 
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Resend](https://img.shields.io/badge/Resend-000000?style=for-the-badge&logo=resend&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Resend](https://img.shields.io/badge/Resend-000000?style=for-the-badge&logo=resend&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ## 🚀 Getting Started
 
@@ -55,9 +66,10 @@ RESEND_API_KEY=
 
 ```
 zarsa2/
-├── api/
-├── assets/
-├── js/
+├── api/            # contact.js — Resend email handler
+├── assets/         # original photos, img/ (WebP sizes), fonts/
+├── css/style.css
+├── js/main.js      # motion & interactions (vendor/lenis.min.js)
 ├── index.html
 ├── package.json
 └── vercel.json
