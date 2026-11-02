@@ -24,7 +24,7 @@ A luxury, motion-rich website for a Toronto fine-jewelry atelier: an editorial c
 ## ✨ Features
 
 - **Signature hero** — a circular window that draws itself in gold, letter-by-letter headline, a rotating "Handmade in Toronto" seal, an arch detail photo and a synced featured-piece carousel
-- **Scroll-driven reveal** — a circle that grows into a full-screen diptych as you scroll
+- **Scroll-driven reveal** — a circle that grows into a full-screen, custom-composed necklace image as you scroll
 - **Editorial collection** — balanced masonry grid, animated filter pill, image clip reveals and a custom "View" cursor
 - **Lightbox** — keyboard, swipe and focus-trap support, piece descriptions, 18K / 22K choice and "Ask about this piece", which pre-fills the order form
 - **Saved pieces** — heart any piece; your saved list shows in the nav and is sent with your request

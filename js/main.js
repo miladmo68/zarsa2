@@ -440,9 +440,8 @@
       const eased = 1 - Math.pow(1 - grow, 3);
       const maxR = Math.hypot(innerWidth, vh) / Math.min(innerWidth, vh) * 72; // % to cover corners
       reveal.style.setProperty("--r", lerp(14, maxR, eased).toFixed(2) + "%");
-      reveal.style.setProperty("--s", lerp(1.12, 1, eased).toFixed(3));
+      reveal.style.setProperty("--s", lerp(1.2, 1, eased).toFixed(3));
       reveal.style.setProperty("--o", eased.toFixed(3));
-      reveal.style.setProperty("--sp", clamp((eased - 0.3) / 0.55).toFixed(3));
       reveal.style.setProperty("--t", clamp((p - 0.5) / 0.25).toFixed(3));
     }
 
