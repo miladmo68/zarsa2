@@ -121,6 +121,29 @@
     el.dataset.delay = sibs.indexOf(el) * 90;
   });
 
+  /* ---------- split hero title into letters ---------- */
+  (() => {
+    const t = $(".hero__title");
+    if (!t) return;
+    let i = 0;
+    $$(".line > span", t).forEach((sp) => {
+      const words = sp.textContent.split(" ");
+      sp.textContent = "";
+      words.forEach((w, wi) => {
+        const ws = document.createElement("span");
+        ws.className = "w";
+        [...w].forEach((c) => {
+          const ch = document.createElement("span");
+          ch.className = "ch"; ch.textContent = c; ch.style.setProperty("--i", i++);
+          ws.appendChild(ch);
+        });
+        sp.appendChild(ws);
+        if (wi < words.length - 1) sp.appendChild(document.createTextNode(" "));
+      });
+      i += 2;
+    });
+  })();
+
   /* ---------- load sequence ---------- */
   const heroLoad = () => {
     document.body.classList.add("is-loaded");
@@ -133,6 +156,7 @@
   const clasp = $("#clasp");
   const claspImgs = $$(".clasp__window img");
   const claspDots = $$(".clasp__dots button");
+  const archImgs = $$(".clasp__arch img");
   const claspData = [
     ["Toggle charm rings", "Rings"],
     ["Black stone toggle choker", "Necklaces"],
@@ -142,6 +166,9 @@
   const showClasp = (i) => {
     ci = (i + claspImgs.length) % claspImgs.length;
     claspImgs.forEach((im, k) => im.classList.toggle("is-active", k === ci));
+    archImgs.forEach((im, k) => im.classList.toggle("is-active", k === ci));
+    const nm = $(".clasp__nm"); nm.classList.remove("swap"); void nm.offsetWidth; nm.classList.add("swap");
+    $("#claspNum").textContent = `0${ci + 1} / 0${claspImgs.length}`;
     claspDots.forEach((d, k) => {
       d.classList.toggle("is-active", k === ci);
       d.setAttribute("aria-selected", k === ci ? "true" : "false");
@@ -157,7 +184,7 @@
   document.addEventListener("visibilitychange", () => (document.hidden ? clearInterval(cTimer) : autoClasp()));
 
   // pointer tilt on the clasp
-  const bar = $("[data-bar]");
+  const seal = $(".clasp__seal");
   if (finePointer && !reduced && clasp) {
     let tx = 0, ty = 0, cx = 0, cy = 0;
     window.addEventListener("pointermove", (e) => {
@@ -168,7 +195,7 @@
       cx = lerp(cx, tx, 0.06); cy = lerp(cy, ty, 0.06);
       const win = $(".clasp__window", clasp);
       win.style.translate = `${cx * -10}px ${cy * -10}px`;
-      if (bar) bar.style.transform = `translate(${cx * 16}px, ${cy * 12}px) rotate(${cx * 3}deg)`;
+      if (seal) seal.style.translate = `${cx * 14}px ${cy * 14}px`;
       requestAnimationFrame(loop);
     };
     loop();
@@ -413,8 +440,9 @@
       const eased = 1 - Math.pow(1 - grow, 3);
       const maxR = Math.hypot(innerWidth, vh) / Math.min(innerWidth, vh) * 72; // % to cover corners
       reveal.style.setProperty("--r", lerp(14, maxR, eased).toFixed(2) + "%");
-      reveal.style.setProperty("--s", lerp(1.18, 1, eased).toFixed(3));
+      reveal.style.setProperty("--s", lerp(1.12, 1, eased).toFixed(3));
       reveal.style.setProperty("--o", eased.toFixed(3));
+      reveal.style.setProperty("--sp", clamp((eased - 0.3) / 0.55).toFixed(3));
       reveal.style.setProperty("--t", clamp((p - 0.5) / 0.25).toFixed(3));
     }
 

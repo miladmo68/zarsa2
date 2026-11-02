@@ -110,22 +110,18 @@
       <section class="hero" id="top">
         <div class="wrap hero__grid">
           <div class="hero__text">
-            <h1 class="display hero__title" data-lines>
-              <span class="line"><span>Gold, made</span></span>
-              <span class="line"><span>by hand</span></span>
-              <span class="line"><span>for you.</span></span>
+            <p class="hero__intro fade" data-delay="200"><svg aria-hidden="true"><use href="#mark" /></svg>A fine jewelry atelier in Toronto</p>
+            <h1 class="display hero__title" aria-label="Gold, made by hand for you.">
+              <span class="line" aria-hidden="true"><span>Gold, made</span></span>
+              <span class="line" aria-hidden="true"><span>by hand</span></span>
+              <span class="line" aria-hidden="true"><span>for you.</span></span>
             </h1>
-            <div class="hero__copy fade" data-delay="500">
-              <p class="lead">Necklaces, bracelets, rings and sets handcrafted in 18K and 22K gold at our Toronto atelier — or designed with you from a first sketch.</p>
+            <div class="hero__copy fade" data-delay="900">
+              <p class="lead">Necklaces, bracelets, rings and sets handcrafted in solid 18K and 22K gold — or designed with you, from a first sketch to the final polish.</p>
               <div class="hero__actions">
                 <a href="#collection" class="btn" data-magnetic>See the collection <svg aria-hidden="true"><use href="#arrow" /></svg></a>
                 <a href="#contact" class="btn btn--ghost" data-magnetic>Start a custom piece</a>
               </div>
-              <ul class="hero__facts">
-                <li>18K &amp; 22K gold</li>
-                <li>Made in Toronto</li>
-                <li>Lifetime care</li>
-              </ul>
             </div>
           </div>
 
@@ -138,31 +134,47 @@
             <svg class="clasp__svg" viewBox="0 0 600 600" aria-hidden="true">
               <circle class="clasp__ring clasp__ring--thin" cx="300" cy="300" r="292" />
               <circle class="clasp__ring" cx="300" cy="300" r="270" />
-              <g class="clasp__bar" data-bar>
-                <rect x="20" y="470" width="300" height="14" rx="7" fill="url(#goldStroke)" transform="rotate(-24 170 477)" />
-                <circle cx="30" cy="536" r="15" fill="url(#goldStroke)" />
-                <circle cx="306" cy="413" r="15" fill="url(#goldStroke)" />
+              <g class="clasp__orbit">
+                <circle cx="300" cy="30" r="11" fill="url(#goldStroke)" />
+                <circle cx="296.5" cy="26.5" r="3.2" fill="#fff6dd" opacity=".85" />
               </g>
             </svg>
-            <div class="clasp__label" aria-live="polite">
-              <i class="sw"><svg aria-hidden="true"><use href="#mark" /></svg></i>
-              <div><b id="claspName">Toggle charm rings</b><span id="claspCat">Rings</span></div>
+            <div class="clasp__seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><defs><path id="heroSeal" d="M60 60m-45 0a45 45 0 1 1 90 0a45 45 0 1 1-90 0" /></defs><text font-size="9.6" letter-spacing="2.6" fill="currentColor" font-family="Hanken Grotesk, sans-serif" font-weight="600"><textPath href="#heroSeal">HANDMADE IN TORONTO • 18K &amp; 22K GOLD • </textPath></text></svg>
+              <i><svg aria-hidden="true"><use href="#mark" /></svg></i>
             </div>
-            <div class="clasp__dots" role="tablist">
-              <button role="tab" aria-label="Show rings" class="is-active"><i></i></button>
-              <button role="tab" aria-label="Show choker"><i></i></button>
-              <button role="tab" aria-label="Show bracelet"><i></i></button>
+            <div class="clasp__arch" aria-hidden="true">
+              <picture><source srcset="assets/img/necklace4-640.webp 640w, assets/img/necklace4-1200.webp 1200w" sizes="200px" type="image/webp" /><img class="is-active" src="assets/necklace4.jpg" alt="" width="959" height="1280" loading="lazy" /></picture>
+              <picture><source srcset="assets/img/bracelet1-640.webp 640w, assets/img/bracelet1-1200.webp 1200w" sizes="200px" type="image/webp" /><img src="assets/bracelet1.jpg" alt="" width="931" height="1280" loading="lazy" /></picture>
+              <picture><source srcset="assets/img/set2-640.webp 640w, assets/img/set2-1200.webp 1200w" sizes="200px" type="image/webp" /><img src="assets/set2.jpg" alt="" width="1280" height="1280" loading="lazy" /></picture>
+            </div>
+            <div class="clasp__cap">
+              <span class="clasp__num" id="claspNum">01 / 03</span>
+              <span class="clasp__nm" aria-live="polite"><b id="claspName">Toggle charm rings</b><span id="claspCat">Rings</span></span>
+              <div class="clasp__dots" role="tablist" aria-label="Choose a featured piece">
+                <button role="tab" aria-label="Show rings" class="is-active"><i></i></button>
+                <button role="tab" aria-label="Show choker"><i></i></button>
+                <button role="tab" aria-label="Show bracelet"><i></i></button>
+              </div>
             </div>
           </div>
         </div>
-        <div class="scroll-cue" aria-hidden="true"><i></i>Scroll</div>
+        <div class="wrap hero__strip fade" data-delay="1300">
+          <ul class="hero__facts">
+            <li><b>Solid gold</b><span>18K &amp; 22K, never plated</span></li>
+            <li><b>Made to measure</b><span>Sized to you at our bench</span></li>
+            <li><b>Lifetime care</b><span>Free cleaning, for good</span></li>
+          </ul>
+          <a href="#reveal" class="scroll-cue" aria-label="Scroll to the next section"><i></i>Scroll</a>
+        </div>
       </section>
 
       <!-- Scroll reveal -->
       <section class="reveal" id="reveal" aria-label="Our approach">
         <div class="reveal__stick">
           <div class="reveal__media">
-            <picture><source srcset="assets/img/necklace8-1200.webp" type="image/webp" /><img src="assets/necklace8.jpg" alt="Hammered gold disc collar necklace" loading="lazy" width="974" height="1280" /></picture>
+            <picture class="rv-a"><source srcset="assets/img/necklace8-1200.webp" type="image/webp" /><img src="assets/necklace8.jpg" alt="Hammered gold disc collar necklace" loading="lazy" width="974" height="1280" /></picture>
+            <picture class="rv-b"><source srcset="assets/img/set4-1200.webp" type="image/webp" /><img src="assets/set4.jpg" alt="Gold bar necklace and ear cuff" loading="lazy" width="1087" height="1280" /></picture>
           </div>
           <span class="reveal__ring" aria-hidden="true"></span>
           <span class="reveal__side reveal__side--l" aria-hidden="true">Sketched,</span>
@@ -446,7 +458,7 @@
               <div class="field"><input id="f-email" type="email" name="email" placeholder=" " autocomplete="email" required /><label for="f-email">Email</label></div>
               <div class="field"><input id="f-phone" type="tel" name="phone" placeholder=" " autocomplete="tel" /><label for="f-phone">Phone <span class="opt">(optional)</span></label></div>
             </div>
-            <div class="field"><textarea id="f-msg" name="message" rows="4" placeholder=" " required></textarea><label for="f-msg">Tell us about your idea</label></div>
+            <div class="field field--grow"><textarea id="f-msg" name="message" rows="4" placeholder=" " required></textarea><label for="f-msg">Tell us about your idea</label></div>
 
             <label class="drop" id="drop">
               <input type="file" name="reference" accept="image/*,.pdf" />
@@ -468,19 +480,36 @@
 
     <footer class="foot on-dark">
       <div class="wrap">
-        <div class="foot__top">
-          <h2 class="h2" data-lines><span class="line"><span>Have a piece</span></span><span class="line"><span><em>in mind?</em></span></span></h2>
-          <a href="#contact" class="btn btn--gold" data-magnetic>Start a custom piece <svg aria-hidden="true"><use href="#arrow" /></svg></a>
-        </div>
-        <p class="foot__word" aria-hidden="true">Zarsa</p>
-        <div class="foot__bar">
-          <span>© <span id="year">2026</span> Zarsa Gold. Handcrafted in Toronto.</span>
-          <nav aria-label="Footer">
+        <div class="foot__main">
+          <div class="foot__brand">
+            <a href="#top" class="brand" aria-label="Zarsa Gold, back to top">
+              <svg class="brand__mark" aria-hidden="true"><use href="#mark" /></svg>
+              <span class="brand__word">Zarsa<small>GOLD</small></span>
+            </a>
+            <p>Fine jewelry handcrafted in solid 18K and 22K gold at our Toronto atelier.</p>
+          </div>
+          <nav class="foot__col" aria-label="Footer">
+            <h3>Explore</h3>
             <a class="link-u" href="#collection">Collection</a>
             <a class="link-u" href="#atelier">Atelier</a>
-            <a class="link-u" href="#contact">Contact</a>
+            <a class="link-u" href="#worn">Worn</a>
+            <a class="link-u" href="#contact">Custom order</a>
           </nav>
-          <span>Site by <a class="link-u" href="https://miladweb.com" target="_blank" rel="noopener">miladweb.com</a></span>
+          <div class="foot__col">
+            <h3>Contact</h3>
+            <a class="link-u" href="tel:+14376081177">(437) 608-1177</a>
+            <a class="link-u" href="mailto:zarsagold@gmail.com">zarsagold@gmail.com</a>
+            <span>17 Atlantic Ave, Toronto, ON M6K 3E7</span>
+          </div>
+          <div class="foot__cta">
+            <h3>Have a piece in mind?</h3>
+            <a href="#contact" class="btn btn--gold" data-magnetic>Start a custom piece <svg aria-hidden="true"><use href="#arrow" /></svg></a>
+          </div>
+        </div>
+        <div class="foot__bar">
+          <span>© <span id="year">2026</span> Zarsa Gold. All rights reserved.</span>
+          <span>Designed &amp; built by <a class="link-u" href="https://milink.ca" target="_blank" rel="noopener">milink.ca</a></span>
+          <a href="#top" class="foot__top" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></a>
         </div>
       </div>
     </footer>
