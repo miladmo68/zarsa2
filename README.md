@@ -4,11 +4,11 @@
 
 An elegant website for a fine-jewelry brand, with a filterable gallery and a custom-order form.
 
-<a href="https://zarsa2.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-Open_Site-FF6A00?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"></a>
+<a href="https://zarsa.ca/"><img src="https://img.shields.io/badge/Live_Demo-Open_Site-FF6A00?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Demo"></a>
 <a href="https://github.com/miladmo68/zarsa2"><img src="https://img.shields.io/badge/Source-GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Source code"></a>
 <a href="https://miladweb.com"><img src="https://img.shields.io/badge/Portfolio-miladweb.com-1E3A8A?style=for-the-badge&logo=aboutdotme&logoColor=white" alt="Portfolio"></a>
 
-**🔗 Live:** [zarsa2.vercel.app](https://zarsa2.vercel.app/)
+**🔗 Live:** [zarsa2.vercel.app](https://zarsa.ca/)
 
 </div>
 
