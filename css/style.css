@@ -836,3 +836,54 @@ body::after { mix-blend-mode: normal; opacity: .035; }
 .no-js .clasp__ring { stroke-dashoffset: 0; }
 .no-js .reveal__media { clip-path: none; }
 .no-js .reveal__text { opacity: 1; transform: none; }
+
+/* ==========================================================================
+   Compact mobile hero: image, headline, copy and both buttons above the fold
+   ========================================================================== */
+@media (max-width: 560px) {
+  .hero { padding-top: calc(var(--nav-h) + env(safe-area-inset-top) + 10px); min-height: auto; }
+  .hero__grid { gap: 18px; }
+  .clasp { width: min(60vw, 280px); margin: 0 auto 44px; }
+  .clasp__seal { width: 27%; right: -6%; top: -2%; }
+  .clasp__arch { width: 33%; left: -14%; bottom: -4%; box-shadow: 0 0 0 4px var(--rose), 0 20px 34px -16px rgba(42, 14, 21, .45); }
+  .clasp__orbit circle:first-child { r: 13; }
+  .clasp__cap { left: -16vw; right: -16vw; bottom: -40px; flex-direction: row; align-items: center; justify-content: center; gap: 14px; }
+  .clasp__nm { display: flex; align-items: baseline; gap: 8px; }
+  .clasp__nm b { font-size: 13.5px; }
+  .clasp__nm span { font-size: 12.5px; }
+  .clasp__cap .clasp__dots { margin-left: 0; gap: 6px; }
+  .clasp__cap .clasp__dots button { width: 20px; }
+  .hero__intro { margin-bottom: 12px; font-size: 13.5px; gap: 10px; }
+  .hero__intro svg { width: 22px; height: 22px; }
+  .hero__title { font-size: clamp(40px, 11.6vw, 60px); line-height: .98; }
+  .hero__copy { margin-top: 16px; gap: 18px; }
+  .hero__copy .lead { font-size: 15.5px; line-height: 1.55; }
+  .hide-sm { display: none; }
+  .hero__actions { flex-wrap: nowrap; gap: 8px; }
+  .hero__actions .btn { flex: 1 1 0; min-width: 0; height: 50px; padding: 0 12px; font-size: 14px; gap: 8px; white-space: nowrap; }
+  .hero__actions .btn svg { width: 16px; height: 16px; }
+  .hero__strip { margin-top: 36px; }
+}
+@media (max-width: 360px) {
+  .hero__actions .btn { font-size: 13px; padding: 0 8px; }
+  .hero__actions .btn svg { display: none; }
+}
+@media (max-width: 560px) {
+  .hero__grid { gap: 12px; }
+  .clasp { width: min(52vw, 260px); margin-bottom: 38px; }
+  .clasp__cap { bottom: -36px; }
+  .hero__title { font-size: clamp(38px, 10.8vw, 56px); }
+  .hero__copy { margin-top: 14px; gap: 16px; }
+  .hero__copy .lead { font-size: 15px; }
+}
+@media (max-width: 560px) and (max-height: 620px) {
+  .clasp { width: min(42vw, 200px); margin-bottom: 34px; }
+  .hero__title { font-size: clamp(34px, 9.6vw, 48px); }
+  .hero__intro { margin-bottom: 8px; }
+  .hero__copy .lead { font-size: 14.5px; }
+}
+@media (min-width: 561px) and (max-width: 880px) {
+  .clasp__num { display: none; }
+  .clasp__cap { left: 26%; right: -6%; }
+  .hero__strip .hero__facts li { grid-template-columns: 180px 1fr; }
+}
