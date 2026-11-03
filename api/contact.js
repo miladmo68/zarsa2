@@ -13,7 +13,12 @@ export default async function handler(req, res) {
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
-  const form = formidable({ multiples: false, maxFileSize: 10 * 1024 * 1024 });
+  const form = formidable({
+    multiples: false,
+    maxFileSize: 10 * 1024 * 1024,
+    allowEmptyFiles: true, // an empty file input must not break the request
+    minFileSize: 0,
+  });
 
   try {
     const { fields, files } = await new Promise((resolve, reject) => {
@@ -23,11 +28,22 @@ export default async function handler(req, res) {
       });
     });
 
-    const name = String(fields.name || "").trim();
-    const email = String(fields.email || "").trim();
-    const phone = String(fields.phone || "N/A").trim();
-    const category = String(fields.category || "N/A").trim();
-    const message = String(fields.message || "").trim();
+    const one = (v) => (Array.isArray(v) ? v[0] : v);
+    const name = String(one(fields.name) || "").trim();
+    const email = String(one(fields.email) || "").trim();
+    const phone = String(one(fields.phone) || "N/A").trim();
+    const category = String(one(fields.category) || "N/A").trim();
+    const message = String(one(fields.message) || "").trim();
+
+    if (!name || !email || !message) {
+      res.status(400).json({ message: "Name, email and message are required." });
+      return;
+    }
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
+      res.status(500).json({ message: "Email service is not configured." });
+      return;
+    }
 
     let attachments = [];
     const file = files.reference;

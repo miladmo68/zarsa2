@@ -533,15 +533,20 @@
     setStatus("");
     try {
       const data = new FormData(form);
+      const ref = data.get("reference");
+      if (!ref || !ref.size) data.delete("reference"); // don't send an empty file part
       if (saved.length) data.set("message", `${msg}\n\nSaved pieces: ${saved.map(nameOf).join(", ")}`);
       const res = await fetch("/api/contact", { method: "POST", body: data });
-      if (!res.ok) throw new Error("Request failed");
       const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        const why = json && json.error && json.error.message ? json.error.message : json.message;
+        throw new Error(why || `Request failed (${res.status})`);
+      }
       setStatus(json.message || "Request sent. We'll reply within two business days.", "ok");
       form.reset(); dropName.innerHTML = dropDefault;
     } catch (err) {
       console.error(err);
-      setStatus("Your request didn't send. Check your connection and try again, or email zarsagold@gmail.com.", "err");
+      setStatus(`Your request didn't send (${err.message}). Try again, or email zarsagold@gmail.com.`, "err");
     } finally {
       btn.disabled = false; btn.classList.remove("is-busy"); lbl.textContent = "Send request";
     }
