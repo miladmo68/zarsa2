@@ -70,8 +70,6 @@
   let lastY = window.scrollY;
   const onNav = (y) => {
     nav.classList.toggle("is-scrolled", y > 20);
-    const goingDown = y > lastY && y > 400;
-    if (!document.body.classList.contains("menu-open")) nav.classList.toggle("is-hidden", goingDown);
     lastY = y;
   };
 
@@ -427,22 +425,44 @@
   const heroEl = $(".hero");
   const contactEl = $("#contact");
 
+  // Stable viewport height: iOS changes innerHeight while the URL bar collapses,
+  // which made scroll scenes jump. Only update it when the width changes.
+  let VH = innerHeight, VW = innerWidth;
+  window.addEventListener("resize", () => { if (innerWidth !== VW) { VW = innerWidth; VH = innerHeight; } });
+
+  // targets are computed from scroll; current values ease toward them every frame
+  const st = { rev: 0, revT: 0, worn: 0, wornT: 0 };
+  let running = false;
+
+  const applyReveal = (p) => {
+    const grow = clamp(p / 0.62);
+    const eased = 1 - Math.pow(1 - grow, 3);
+    const maxR = (Math.hypot(VW, VH) / Math.min(VW, VH)) * 72;
+    reveal.style.setProperty("--r", lerp(14, maxR, eased).toFixed(2) + "%");
+    reveal.style.setProperty("--s", lerp(1.2, 1, eased).toFixed(4));
+    reveal.style.setProperty("--o", eased.toFixed(4));
+    reveal.style.setProperty("--t", clamp((p - 0.5) / 0.25).toFixed(4));
+  };
+
+  const tick = () => {
+    const k = finePointer && lenis ? 1 : 0.16; // Lenis already smooths desktop
+    st.rev += (st.revT - st.rev) * k;
+    st.worn += (st.wornT - st.worn) * (finePointer ? 0.12 : 1);
+    if (reveal && !reduced) applyReveal(st.rev);
+    if (wornTrack && finePointer && !reduced) wornTrack.style.transform = `translate3d(${(-st.worn).toFixed(1)}px, 0, 0)`;
+    if (Math.abs(st.revT - st.rev) > 0.0005 || Math.abs(st.wornT - st.worn) > 0.3) requestAnimationFrame(tick);
+    else running = false;
+  };
+  const kick = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
+
   const scene = () => {
     const y = window.scrollY;
-    const vh = innerHeight;
+    const vh = VH;
     onNav(y);
 
     if (reveal && !reduced) {
       const r = reveal.getBoundingClientRect();
-      const total = r.height - vh;
-      const p = clamp(-r.top / total);
-      const grow = clamp(p / 0.62);
-      const eased = 1 - Math.pow(1 - grow, 3);
-      const maxR = Math.hypot(innerWidth, vh) / Math.min(innerWidth, vh) * 72; // % to cover corners
-      reveal.style.setProperty("--r", lerp(14, maxR, eased).toFixed(2) + "%");
-      reveal.style.setProperty("--s", lerp(1.2, 1, eased).toFixed(3));
-      reveal.style.setProperty("--o", eased.toFixed(3));
-      reveal.style.setProperty("--t", clamp((p - 0.5) / 0.25).toFixed(3));
+      st.revT = clamp(-r.top / (r.height - vh));
     }
 
     if (!reduced) {
@@ -452,15 +472,15 @@
         const c = (r.top + r.height / 2 - vh / 2) / vh;
         el.style.transform = `translate3d(0, ${(c * parseFloat(el.dataset.parallax) * 100).toFixed(2)}%, 0)`;
       });
-      if (worn && wornTrack) {
+      if (worn && wornTrack && finePointer) {
         const r = worn.getBoundingClientRect();
         if (r.bottom > 0 && r.top < vh) {
           const p = clamp((vh - r.top) / (vh + r.height));
-          const max = Math.max(0, wornTrack.scrollWidth - innerWidth + 40);
-          wornTrack.style.transform = `translate3d(${(-p * max).toFixed(1)}px, 0, 0)`;
+          st.wornT = p * Math.max(0, wornTrack.scrollWidth - VW + 40);
         }
       }
     }
+    kick();
 
     if (mcta) {
       const pastHero = heroEl.getBoundingClientRect().bottom < 0;
@@ -535,7 +555,15 @@
     renderSaved(false);
     movePill(fBtns[0]);
     scene();
-    setTimeout(heroLoad, 120);
+    const first = $(".clasp__window img.is-active");
+    const ready = Promise.all([
+      document.fonts ? document.fonts.ready : Promise.resolve(),
+      first && first.decode ? first.decode().catch(() => {}) : Promise.resolve(),
+    ]);
+    let done = false;
+    const go = () => { if (done) return; done = true; requestAnimationFrame(() => requestAnimationFrame(heroLoad)); };
+    ready.then(go);
+    setTimeout(go, 1800);
   };
   boot();
 })();
